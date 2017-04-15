@@ -11,11 +11,17 @@ We can see from the above plot that most of the passanger (about 550) were peris
 ## Feedback
 
 ### Feedback 1
-Your chart was a bit messy & no clear headlines & legend. If there is some explanation like a bold headline then these charts would make sense. The insights is not so much of a surprise and if you just create a small tweak in the legend, x-axis & y-axis then this would looks good. The data clearly favors your initial hypothesis, women children & elders are prioritized to board the baot first.
+When clicking the tab to view your charts they over lapped one over the other , that make it messy to visualize your charts so clealy. please find a way to avoid the overlap of one chart over the other. 
 ### Feedback 2
 
-The chart is interactive, that's nice. But why the second chart is revert and not in-line with the other chart. Switch x-axis & y-axis with each other and I think the chart will looks much better. By the way, the first chart to split between classes is cool but I think you can make it even better by combining gender & classes to see if there's different behavior in different classes. Broadly speaking, the chart looks intuitive & only needs a few small tweak.
+You have used stacked chart to show each category in the dataset, I think one chart could be enough to show this information or you better show them on separate charts. 
+
 ### Feedback 3
 
-The second chart looks a bit weird and too much junk information, there's no need to include different age in different age bracket like that. There's not much information to show. And for the first chart, split the column into two, a stacked-bar wouldn't be necessary. Also, you also needs to clean up the headline & make clear of the axis, what is PClass? Can you makes it a bit clearer. Overall, this chart is straightforward.
+The fonts on each tag is so large better you reduce the font size and also the button size for better viaulization.
+
+
+## Post feedback
+
+As per the feedbacks given above I have tried to incorborate their suggestion in the final plot, I have used  different bar cahrts to plot number of survival per class, sex and average age of survival in each calss and sex. In addition I have tried to reduce the font and the button size for better viaulization.   
 
