@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src = "http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <style type="text/css">
+    h1 {
+      font-family: sans-serif;
+      font-size: 40px;
+      text-align: center;
+    }
+
+    p {
+      width = 200px;
+      font-family: sans-serif;
+      font-size: 20px;
+      font-color:#344953;
+      text-align: center;
+    }
+
+   .chart:hover {
+    fill: brown;
+   }
+   .pink {
+      background: pink;
+      border: 1px solid purple;
+    }
+  </style>
+  <script type="text/javascript">
+    function draw(data) {
+      /*
+      D3.js setup code
+      */
+      "use strict";
+      
+      // header
+
+        
+      d3.select("body")
+        .append("h1")
+        .text("Tatanic Dataset Analysis Using Bar Charts");
+      d3.select("body")
+        .append("h2")
+        .text("Description of the dataset");
+      d3.select("body")
+        .append("p")
+        .text("These bar graphs are based on Titanic dataset which contains  information for 891 people of the 2224 passangers on board of the Titanic that sank in North Atlantic Ocean in the early morning of 15 April, 1912, after colliding with an iceberg during her maiden voyage from Southampton to New York City."); 
+      d3.select("body")
+        .append("button")
+        .attr("class", "btn btn-primary btn-lg ")
+        .attr("id", "p1")
+        .text("Tatanic survival per passanger class"); 
+      d3.select("body")
+        .append("button")
+        .attr("class", "btn btn-success btn-lg ")
+        .attr("id", "p2")
+        .text("Tatanic survival per passanger Sex ");
+      d3.select("body")
+        .append("button")
+        .attr("class", "btn btn-danger btn-lg")
+        .attr("id", "p3")
+        .text("Titanic survival per passanger age");
+
+      /* 
+      Dimple.js Chart construction code
+      */
+      var p1button = document.querySelector('#p1');
+      var p2button = document.getElementById('p2');
+      var p3button = document.querySelector('#p3');
+      
+      
+       p1button.addEventListener('click',function(){
+      var svg1 = dimple.newSvg("body", 800, 600);
+      var myChart1 = new dimple.chart(svg1,data);  
+      var x = myChart1.addCategoryAxis("x","Pclass");
+      myChart1.addMeasureAxis("y","Survived");
+      var myChartSeries1 =myChart1.addSeries(null,dimple.plot.bar);
+      myChart1.addLegend(300, 10, 300, 20, "right");
+      myChart1.draw();
+      
+
+    });
+      
+      p2button.addEventListener('click',function(){
+      var svg2 = dimple.newSvg("body", 800, 600);
+      var myChart2 = new dimple.chart(svg2,data);  
+      var x = myChart2.addCategoryAxis("x","Sex");
+      myChart2.addMeasureAxis("y","Survived");
+      var myChartSeries2 =myChart2.addSeries(null,dimple.plot.bar);
+      myChart1.addLegend(300, 10, 300, 20, "right");
+      myChart2.draw();
+      
+
+    });
+      p3button.addEventListener('click',function(){
+      var svg3 = dimple.newSvg("body", 800, 600);
+      var myChart3 = new dimple.chart(svg3,data);  
+      var x = myChart3.addCategoryAxis("x","Age");
+      myChart3.addMeasureAxis("y","Survived");
+      var myChartSeries3 =myChart3.addSeries(null,dimple.plot.bar);
+      myChart1.addLegend(300, 10, 300, 20, "right");
+      myChart3.draw();
+      
+
+    }) ;
+ 
+    };
+  </script>
+
+</head>
+<body>
+  
+
+<script type="text/javascript">
+  /*
+  Use D3 to load the csv file and pass 
+  the content of it to the draw function
+  */
+  d3.csv('titanic_data.csv', draw);
+</script>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
