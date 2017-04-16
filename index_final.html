@@ -32,12 +32,10 @@
   <script type="text/javascript">
     function draw(data) {
       /*
-      D3.js setup code
+      D3.js setup code, this part will select the "body" and append different elements
+      in the body using D3
       */
       "use strict";
-      
-      // header
-
         
       d3.select("body")
         .append("h1")
@@ -47,30 +45,27 @@
         .text("Description of the dataset");
       d3.select("body")
         .append("p")
-        .text("These bar graphs are based on Titanic dataset which contains  information for 891 people of the 2224 passangers on board of the Titanic that sank in North Atlantic Ocean in the early morning of 15 April, 1912, after colliding with an iceberg during her maiden voyage from Southampton to New York City."); 
+        .text("These bar graphs are based on Titanic dataset which contains  information for 891 people of the 2224 passangers on board of the Titanic that sank in North Atlantic Ocean in the early morning of 15 April, 1912, after colliding with an iceberg during her maiden voyage from Southampton to New York City. The bar graph below tells us that on many of the survivor were females and most of these passanger were in the first and secodn class. In the males case also the number of surviors in the first class were higher than the other classess. We may speculate that class of the passangers contributed on the survival rate of both female and male passanger., however in all class the number of female passanger surval was by far larger than that of male passanger, that might be due to the fact that priority for rescue could be given to female passangers"); 
       d3.select("body")
         .append("button")
         .attr("class", "btn btn-primary btn-sm ")
         .attr("id", "p1")
-        .text("Tatanic survival per passanger class"); 
-      d3.select("body")
-        .append("button")
-        .attr("class", "btn btn-success btn-sm ")
-        .attr("id", "p2")
-        .text("Tatanic survival per passanger Sex ");
-      d3.select("body")
-        .append("button")
-        .attr("class", "btn btn-danger btn-sm")
-        .attr("id", "p3")
-        .text("Titanic survival per passanger age");
+        .text("Tatanic survival as per different factors "); 
+    
+       
+       /*
+        This part selects different varaible from the document and
+        assigned them to three varaible:
+        i.e. assigning variables 
+     */
+   
+      var p1button = document.querySelector('#p1');
+      
 
       /* 
-      Dimple.js Chart construction code
+      Dimple.js is used to construct the bar chart used for this project. Three different blockes 
+      of code are used to draw three different bar charts for different features in the dataset
       */
-      var p1button = document.querySelector('#p1');
-      var p2button = document.getElementById('p2');
-      var p3button = document.querySelector('#p3');
-      
       
       p1button.addEventListener('click',function(){
       var svg1 = dimple.newSvg("body", 800, 600);
@@ -84,7 +79,7 @@
 
     });
       
-      p2button.addEventListener('click',function(){
+      p1button.addEventListener('click',function(){
       var svg2 = dimple.newSvg("body", 800, 600);
       var myChart2 = new dimple.chart(svg2,data);  
       var x = myChart2.addCategoryAxis("x","Sex");
@@ -95,10 +90,10 @@
       
 
     });
-      p3button.addEventListener('click',function(){
+      p1button.addEventListener('click',function(){
       var svg3 = dimple.newSvg("body", 800, 600);
       var myChart3 = new dimple.chart(svg3,data);  
-      var x = myChart3.addCategoryAxis("x","Age");
+      var x = myChart3.addCategoryAxis("x","age_group");
       myChart3.addMeasureAxis("y","Survived");
       var myChartSeries3 =myChart3.addSeries(null,dimple.plot.bar);
       myChart3.addLegend(600, 10, 510, 20, "right");
@@ -113,14 +108,15 @@
 </head>
 <body>
   
-
 <script type="text/javascript">
   /*
   Use D3 to load the csv file and pass 
   the content of it to the draw function
   */
-  d3.csv('tit_group_byclass.csv', draw);
+  d3.csv('age_group_df.csv', draw);
+  
 </script>
+
 <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
