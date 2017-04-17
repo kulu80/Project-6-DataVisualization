@@ -24,3 +24,7 @@ The fonts on each tag is so large better you reduce the font size and also the b
 
 As per the feedbacks given above I have tried to incorborate their suggestion in the final plot, I have used  different bar cahrts to plot number of survival per class, sex and average age of survival in each calss and sex. In addition I have tried to reduce the font and the button size for better viaulization.   
 
+## Reference
+[http://dimplejs.org/examples_index.html](http://dimplejs.org/examples_index.html)
+[http://dimplejs.org/examples_index.html](http://dimplejs.org/examples_index.html)
+[http://getbootstrap.com/](http://getbootstrap.com/)
