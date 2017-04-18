@@ -40,12 +40,7 @@
       d3.select("body")
         .append("h1")
         .text("Tatanic Dataset Analysis Using Bar Charts");
-      d3.select("body")
-        .append("h2")
-        .text("Description of the dataset");
-      d3.select("body")
-        .append("p")
-        .text("These bar graphs are based on Titanic dataset which contains  information for 891 people of the 2224 passangers on board of the Titanic that sank in North Atlantic Ocean in the early morning of 15 April, 1912, after colliding with an iceberg during her maiden voyage from Southampton to New York City. "); 
+      
       d3.select("body")
         .append("button")
         .attr("class", "btn btn-primary btn-sm ")
@@ -68,23 +63,29 @@
       */
       
       p1button.addEventListener('click',function(){
+      
       var svg1 = dimple.newSvg("body", 1200, 600);
+      svg1.append("text").attr("x", (svg1[0][0].clientWidth / 2)).attr("y", 14)
+         .attr("text-anchor", "middle").style("font-size", "13px").style("font-weight", "bold")
+         .text("Passanger Gender: Female Passangers have high chance of survival as compared to all passangers");
       var myChart1 = new dimple.chart(svg1,data);  
-      var x = myChart1.addCategoryAxis("x","Pclass");
-      myChart1.addMeasureAxis("y","Survived");
-      var myChartSeries1 =myChart1.addSeries(null,dimple.plot.bar);
+      var x = myChart1.addCategoryAxis("x",'Sex');
+      myChart1.addMeasureAxis("y","Survival_rate");
+      var myChartSeries1 = myChart1.addSeries(null,dimple.plot.bar);
       myChart1.addLegend(600, 10, 510, 20, "right");
       myChart1.draw();
       
-
     });
       
       p1button.addEventListener('click',function(){
       var svg2 = dimple.newSvg("body", 1200, 600);
+      svg2.append("text").attr("x", (svg2[0][0].clientWidth / 2)).attr("y", 14)
+         .attr("text-anchor", "middle").style("font-size", "13px").style("font-weight", "bold")
+         .text("Passanger Class: First class passangers have high chance of survival compared to all passangers");
       var myChart2 = new dimple.chart(svg2,data);  
-      var x = myChart2.addCategoryAxis("x","Sex");
-      myChart2.addMeasureAxis("y","Survived");
-      var myChartSeries2 =myChart2.addSeries(null,dimple.plot.bar);
+      var x = myChart2.addCategoryAxis("x","Pclass");
+      myChart2.addMeasureAxis("y","Survival_rate");
+      var myChartSeries2 = myChart2.addSeries(null,dimple.plot.bar);
       myChart2.addLegend(600, 10, 510, 20, "right");
       myChart2.draw();
       
@@ -92,10 +93,13 @@
     });
       p1button.addEventListener('click',function(){
       var svg3 = dimple.newSvg("body", 1200, 600);
+      svg3.append("text").attr("x", (svg3[0][0].clientWidth / 2)).attr("y", 14)
+         .attr("text-anchor", "middle").style("font-size", "13px").style("font-weight", "bold")
+         .text(" Passanger Age Group: The age group '20-29' has high chance of survival as compared to all passangers ");
       var myChart3 = new dimple.chart(svg3,data);  
       var x = myChart3.addCategoryAxis("x","age_group");
-      myChart3.addMeasureAxis("y","Survived");
-      var myChartSeries3 =myChart3.addSeries(null,dimple.plot.bar);
+      myChart3.addMeasureAxis("y","Survival_rate_age");
+      var myChartSeries3 = myChart3.addSeries(null,dimple.plot.bar);
       myChart3.addLegend(600, 10, 510, 20, "right");
       myChart3.draw();
       
@@ -113,7 +117,7 @@
   Use D3 to load the csv file and pass 
   the content of it to the draw function
   */
-  d3.csv('titanic_df.csv', draw);
+  d3.csv('titanic_dat_csv.csv', draw);
   
 </script>
 
